@@ -1,0 +1,112 @@
+type User {
+id: ID! @id
+username: String! @unique
+password: String
+name: String
+address: String
+phone: String
+email: String
+mileage: Int
+createdAt: DateTime! @createdAt
+cart: [Cart] @relation(name: "CartOfUser") 
+wish: [WishList] @relation(name: "WishListOfUser")
+buying: [Order]
+tmpOrder:tmpCart
+fromCart:Boolean
+}
+type tmpCart{
+id: ID! @id
+selections: [Selection]
+}
+
+type WishList {
+id: ID! @id
+user: User! @relation(name: "WishListOfUser")
+selection: Selection
+createdAt: DateTime! @createdAt
+}
+
+type Cart {
+id: ID! @id,
+user: User! @relation(name: "CartOfUser")
+selection: Selection
+createdAt: DateTime! @createdAt
+}
+
+
+type Selection {
+id: ID! @id,
+count: Int!
+color: String
+size: String
+product: Product
+}
+
+type Product{
+id: ID! @id
+name: String
+price: Int
+type: String
+files: [File!]! @relation(name: "FilesOfProduct", onDelete: CASCADE)
+colors: [String] @scalarList(strategy: RELATION)
+sizes: [String] @scalarList(strategy: RELATION)
+count: Int
+tags: String
+createdAt: DateTime! @createdAt
+shippingFee: Int
+}
+
+type File {
+id: ID! @id
+url: String!
+product: Product @relation(name: "FilesOfProduct")
+createdAt: DateTime! @createdAt
+}
+
+type Order {
+id: ID! @id
+user: User
+name: String!
+phone: String!
+email: String!
+orderNumber: String!
+selections: [Selection] @relation(onDelete: CASCADE)
+recipient: String!
+recipientPhone: String!
+address: String!
+message: String
+info: String
+totalPrice: Int
+status: String
+payment: String
+createdAt: DateTime! @createdAt
+}
+
+
+
+type Notice {
+id: ID! @id
+subject: String!
+contents: String!
+createdAt: DateTime! @createdAt
+}
+
+type Question {
+id: ID! @id
+user: User
+QuestionType: String!
+product: Product @relation(link: INLINE)
+username: String
+password: String
+contents: String!
+createdAt: DateTime! @createdAt
+answer: Answer @relation(link: INLINE, name: "QnA", onDelete: CASCADE)
+}
+
+type Answer {
+id: ID! @id
+contents: String!
+createdAt: DateTime! @createdAt
+question: Question! @relation(name: "QnA")
+}
+

@@ -1,0 +1,113 @@
+type User {
+id: ID! 
+username: String!
+password: String
+name: String
+address: String
+phone: String
+email: String
+mileage: Int
+createdAt: String 
+cart: [Cart] 
+wish: [WishList]
+buying: [Order]
+tmpOrder:tmpCart
+fromCart:Boolean
+}
+type tmpCart{
+id: ID!
+selections: [Selection]
+}
+
+
+type WishList {
+id: ID! 
+user: User!
+selection: Selection!
+createdAt: String 
+}
+
+type Cart {
+id: ID! 
+user: User!
+selection: Selection!
+createdAt: String 
+}
+
+
+
+type Selection {
+id: ID!
+count: Int!
+color: String
+size: String
+product: Product
+}
+
+type Product{
+id: ID! 
+name: String
+price: Int
+type: String
+files: [File!]
+colors: [String]
+sizes: [String]
+count: Int
+tags: String
+createdAt: String 
+shippingFee: Int
+}
+
+type File {
+id: ID! 
+url: String!
+product: Product!
+createdAt: String 
+}
+
+type Order {
+id: ID! 
+user: User!
+name: String!
+phone: String!
+email: String!
+orderNumber: String!
+selections: [Selection]
+recipient: String!
+recipientPhone: String!
+address: String!
+message: String
+info: String
+totalPrice: Int
+status: String
+payment: String
+createdAt: String!
+}
+
+
+
+type Notice {
+id: ID! 
+subject: String!
+contents: String!
+createdAt: String 
+}
+
+type Question {
+id: ID!
+user: User
+QuestionType: String!
+product: Product
+username: String
+password: String
+contents: String!
+createdAt: String 
+answer: Answer
+}
+
+type Answer {
+id: ID! 
+contents: String!
+createdAt: String 
+question: Question!
+}

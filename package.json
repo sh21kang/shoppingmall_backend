@@ -1,0 +1,43 @@
+{
+  "name": "shopping_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sh21kang/shoppingmall_backend.git",
+  "author": "sangho <sh21kan@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/node": "^7.4.5",
+    "dotenv": "^8.0.0",
+    "graphql-tools": "^4.0.4",
+    "graphql-yoga": "^1.17.4",
+    "merge-graphql-schemas": "^1.5.8",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "prisma-client-lib": "^1.34.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "copy": "^0.3.2",
+    "nodemon": "^1.19.1",
+    "regenerator-runtime": "^0.13.2"
+  },
+  "scripts": {
+    "start": "node build/server.js",
+    "deploy": "prisma deploy",
+    "generate": "prisma generate",
+    "prisma": "yarn run deploy && yarn run generate",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "serve": "node build/server.js",
+    "build": "babel src -d build",
+    "postbuild": "cd src && copy ./api/**/*.graphql ../build/api"
+  }
+}

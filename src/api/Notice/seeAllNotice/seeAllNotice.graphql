@@ -1,0 +1,4 @@
+type Query {
+  seeAllNotice(page: Int!): [Notice]
+  NoticeCount: Int
+}
