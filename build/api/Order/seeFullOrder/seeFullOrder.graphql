@@ -1,0 +1,3 @@
+type Query {
+  seeFullOrder(orderId:String!): Order!
+}

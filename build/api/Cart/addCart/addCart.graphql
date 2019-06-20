@@ -1,0 +1,11 @@
+
+input Wrapper {
+productId: String!
+color: String
+size: String
+count: Int!
+}
+
+type Mutation {
+  addCart(wrapper:[Wrapper]) :Boolean!
+}

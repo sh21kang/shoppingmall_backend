@@ -1,0 +1,4 @@
+type Query {
+  seeAllQuestion(page: Int!): [Question]
+  QuestionCount: Int
+}

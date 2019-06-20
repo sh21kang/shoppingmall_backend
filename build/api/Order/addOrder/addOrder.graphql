@@ -1,0 +1,21 @@
+
+input UserInput{
+name: String!
+phone: String!
+email: String
+recipient: String!
+recipientPhone: String!
+address: String!
+message: String
+info: String
+payment: String!
+}
+
+input SelectionId{
+  id: String!
+}
+
+
+type Mutation {
+  addOrder(userInput:UserInput, totalPrice:Int, cartId:[String],selectionId:[SelectionId],wrapper:[Wrapper]) :Boolean!
+}

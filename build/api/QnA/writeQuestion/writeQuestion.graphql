@@ -1,0 +1,9 @@
+type Mutation {
+  writeQuestion(
+    QuestionType: String
+    productId: String
+    username: String
+    password: String
+    contents: String
+  ): Question!
+}

@@ -1,0 +1,4 @@
+
+type Mutation {
+  moveToCart(wishId:[String], selectionId:[String]) :Boolean
+}

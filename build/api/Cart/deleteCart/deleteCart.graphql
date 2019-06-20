@@ -1,0 +1,4 @@
+
+type Mutation {
+  deleteCart(cartId:[String], selectionId:[String]) :Boolean
+}

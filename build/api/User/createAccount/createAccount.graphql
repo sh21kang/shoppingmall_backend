@@ -1,0 +1,20 @@
+type createAccountResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  createAccount(
+    username: String!
+    password: String!
+    email: String!
+    name: String!
+    phone: String
+    address: String
+  ): createAccountResponse!
+}
+
+type Query {
+  something: String!
+}

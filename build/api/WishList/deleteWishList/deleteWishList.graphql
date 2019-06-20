@@ -1,0 +1,4 @@
+
+type Mutation {
+  deleteWishList(wishId:[String], selectionId:[String]) :Boolean
+}
