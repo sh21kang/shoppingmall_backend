@@ -1,0 +1,4 @@
+type Query {
+  seeProductList(type: String! , page: Int!): [Product],
+  ProductListCount(type: String!):Int
+}

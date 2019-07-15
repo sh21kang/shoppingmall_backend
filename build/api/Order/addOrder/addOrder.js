@@ -14,7 +14,7 @@ var _default = {
     addOrder: async (_, args, {
       request
     }) => {
-      (0, _middlewares.isAuthenticated)(request); //annot destructure property `name` of 'undefined' or 'null' TypeError
+      // (0, _middlewares.isAuthenticated)(request); //annot destructure property `name` of 'undefined' or 'null' TypeError
 
       const {
         userInput,
@@ -38,6 +38,7 @@ var _default = {
         user
       } = request;
       let tmp = new Date();
+      console.log(user,request);
       const orderNumber = String(tmp.getTime()).substring(2, 12) + user.id.substring(5, 10);
 
       if (selectionId !== undefined) {

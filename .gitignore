@@ -64,3 +64,4 @@ prisma.yml
 
 src/.env
 
+build
