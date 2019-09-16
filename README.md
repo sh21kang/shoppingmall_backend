@@ -1,11 +1,6 @@
 # This project is making shoppingmall backend with graphql
 
-tags{best, sale, new, main}
+### This Project is backend of the https://github.com/sh21kang/shoppingmall_frontend 
 
-
-input Wrapper {
-productId: String!
-color: String
-size: String
-count: Int!
-}
+### Check out the link below
+https://shoppingmallfrontend.herokuapp.com/#/
